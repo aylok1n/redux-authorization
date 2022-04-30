@@ -32,7 +32,7 @@ export const SignInPage = () => {
       const resultAction = await dispatch(loginMiddleware({ password, email }));
       if (loginMiddleware.rejected.match(resultAction)) {
         toast.error(error);
-      } else if (resultAction.type) {
+      } else if (loginMiddleware.fulfilled.match(resultAction)) {
         toast.success("Вы вошли в систему");
         setTimeout(() => {
           dispatch(clearSignIn());
