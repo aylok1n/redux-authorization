@@ -1,14 +1,19 @@
 import { useRef } from "react";
 import { Navigate } from "react-router-dom";
-import { setSignInPassword } from "../../redux/forms/signInSlice";
 import {
+  clearSignUp,
+  registerMiddleware,
   setSignUpConfirmPassword,
   setSignUpEmail,
+  setSignUpPassword,
 } from "../../redux/forms/signUpSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Input } from "../ui/input";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpPage = () => {
+  let navigate = useNavigate();
   const { user, signUp } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
@@ -16,14 +21,30 @@ export const SignUpPage = () => {
   const passwordInput = useRef<Input>(null);
   const confirmPasswordInput = useRef<Input>(null);
 
-  if (!!user.email && !!user.password) return <Navigate to={"/"} />;
-
   const register = async () => {
+    const { email, password,error } = signUp;
     const isEmailValid = await emailInput.current?.validate();
     const isPasswordValid = await passwordInput.current?.validate();
-    if (isEmailValid && isPasswordValid) {
+    const isConfirmPasswordInput =
+      await confirmPasswordInput.current?.validate();
+
+    if (isEmailValid && isPasswordValid && isConfirmPasswordInput) {
+      const resultAction = await dispatch(
+        registerMiddleware({ password, email })
+      );
+      if (registerMiddleware.rejected.match(resultAction)) {
+        toast.error(error);
+      } else if (registerMiddleware.fulfilled.match(resultAction)) {
+        toast.success("Регистрация успешна");
+        setTimeout(() => {
+          dispatch(clearSignUp());
+          navigate("/signIn");
+        }, 1500);
+      }
     }
   };
+
+  if (!!user.email && !!user.password) return <Navigate to={"/"} />;
 
   return (
     <main className="flex flex-col justify-center">
@@ -38,7 +59,7 @@ export const SignUpPage = () => {
         ref={passwordInput}
         value={signUp.password}
         placeholder="Введите пароль"
-        onChange={(value) => dispatch(setSignInPassword(value))}
+        onChange={(value) => dispatch(setSignUpPassword(value))}
         validationSchema={Input.validation.password}
       />
       <Input
@@ -49,8 +70,11 @@ export const SignUpPage = () => {
         validationSchema={Input.validation.confirmPassword(signUp.password)}
       />
       <button
-        className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
+        className={`rounded py-2 px-4 text-white ${
+          signUp.loading ? "bg-grey" : "bg-blue-500 hover:bg-blue-700"
+        }`}
         onClick={register}
+        disabled={signUp.loading}
       >
         Регистрация
       </button>

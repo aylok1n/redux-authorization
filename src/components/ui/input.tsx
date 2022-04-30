@@ -52,7 +52,7 @@ export class Input extends Component<P, S> {
       .validate(value)
       .then((res) => {
         this.setState({ status: inputStatus.blur, errorText: "" });
-        return false;
+        return true;
       })
       .catch((res: ValidationError) => {
         this.setState({ status: inputStatus.error, errorText: res.message });

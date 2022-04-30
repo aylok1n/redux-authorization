@@ -22,11 +22,11 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action: PayloadAction<LoginActionPayload>) => {
       state.email = action.payload.email;
-      state.email = action.payload.email;
+      state.password = action.payload.password;
     },
     logout: (state) => {
       state.email = null;
-      state.email = null;
+      state.password = null;
     },
   },
 });
