@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ciplay/static/css/main.852dbf88.css",
+    "main.js": "/ciplay/static/js/main.b7fdc920.js",
+    "index.html": "/ciplay/index.html",
+    "main.852dbf88.css.map": "/ciplay/static/css/main.852dbf88.css.map",
+    "main.b7fdc920.js.map": "/ciplay/static/js/main.b7fdc920.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.852dbf88.css",
+    "static/js/main.b7fdc920.js"
+  ]
+}
