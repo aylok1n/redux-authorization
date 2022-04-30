@@ -17,13 +17,13 @@ const App = () => {
     <div className="flex items-center flex-col">
       <Toaster position="top-right" />
       <nav className="w-full py-5 bg-blue-500 shadow-lg shadow-blue-500/50 align-middle font-bold text-white mb-3 ">
-        <Link className="self-start hover:text-cyan-100 float-left mx-2" to="/">
+        <Link className="self-start hover:text-cyan-100 float-left mx-2" to="/ciplay">
           Главная
         </Link>
         {!isLoginned && (
           <Link
             className="self-end hover:text-cyan-100 float-right mx-2"
-            to="/signIn"
+            to="/ciplay/signIn"
           >
             Авторизация
           </Link>
@@ -31,7 +31,7 @@ const App = () => {
         {!isLoginned && (
           <Link
             className="self-end hover:text-cyan-100 float-right mx-2"
-            to="/signUp"
+            to="/ciplay/signUp"
           >
             Регистрация
           </Link>
@@ -47,7 +47,7 @@ const App = () => {
         {isLoginned && (
           <Link
             className="self-end hover:text-cyan-100 float-right mx-2"
-            to="/changePassword"
+            to="/ciplay/changePassword"
           >
             Сменить пароль
           </Link>

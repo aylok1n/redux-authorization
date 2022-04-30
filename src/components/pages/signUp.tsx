@@ -38,13 +38,13 @@ export const SignUpPage = () => {
         toast.success("Регистрация успешна");
         setTimeout(() => {
           dispatch(clearSignUp());
-          navigate("/signIn");
+          navigate("/ciplay/signIn");
         }, 1500);
       }
     }
   };
 
-  if (!!user.email && !!user.password) return <Navigate to={"/"} />;
+  if (!!user.email && !!user.password) return <Navigate to={"/ciplay"} />;
 
   return (
     <main className="flex flex-col justify-center">

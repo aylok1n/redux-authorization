@@ -21,7 +21,7 @@ export const SignInPage = () => {
   const emailInput = useRef<Input>(null);
   const passwordInput = useRef<Input>(null);
 
-  if (!!user.email && !!user.password) return <Navigate to={"/"} />;
+  if (!!user.email && !!user.password) return <Navigate to={"/ciplay"} />;
 
   const logIn = async () => {
     const { email, password, error } = signIn;
@@ -37,7 +37,7 @@ export const SignInPage = () => {
         setTimeout(() => {
           dispatch(clearSignIn());
           dispatch(login({ password, email }));
-          navigate("/");
+          navigate("/ciplay");
         }, 1500);
       }
     }

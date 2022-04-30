@@ -18,12 +18,12 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/ciplay" element={<App />}>
             <Route index element={<WelcomePage />} />
-            <Route path="/signIn" element={<SignInPage />} />
-            <Route path="/signUp" element={<SignUpPage />} />
-            <Route path="/changePassword" element={<ChangePasswordPage />} />
-            <Route path="*" element={<Navigate to={"/"} />} />
+            <Route path="/ciplay/signIn" element={<SignInPage />} />
+            <Route path="/ciplay/signUp" element={<SignUpPage />} />
+            <Route path="/ciplay/changePassword" element={<ChangePasswordPage />} />
+            <Route path="*" element={<Navigate to={"/ciplay"} />} />
           </Route>
         </Routes>
       </BrowserRouter>

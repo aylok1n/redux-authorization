@@ -40,7 +40,7 @@ export const ChangePasswordPage = () => {
     }
   };
 
-  if (!user.email || !user.password) return <Navigate to={"/"} />;
+  if (!user.email || !user.password) return <Navigate to={"/ciplay"} />;
 
   return (
     <main className="flex flex-col justify-center">

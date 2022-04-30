@@ -1,6 +1,7 @@
 {
   "name": "ciplay",
   "version": "0.1.0",
+  "homepage": "https://aylok1n.github.io/ciplay",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
@@ -22,6 +23,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
   "devDependencies": {
     "@types/yup": "^0.29.13",
     "autoprefixer": "^10.4.5",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24"
   }
