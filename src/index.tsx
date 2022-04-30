@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from './components/App';
 import { SignInPage } from './components/pages/singnIn';
 import { SignUpPage } from './components/pages/signUp';
 import { ChangePasswordPage } from './components/pages/changePassword';
-import { NotFoundPage } from './components/pages/notFound';
 import { WelcomePage } from './components/pages/welcome';
 
 const root = ReactDOM.createRoot(
@@ -21,11 +20,7 @@ root.render(
           <Route path="/signIn" element={<SignInPage />} />
           <Route path="/signUp" element={<SignUpPage />} />
           <Route path="/changePassword" element={<ChangePasswordPage />} />
-          <Route
-            path="*"
-            element={<NotFoundPage />}
-          />
-
+          <Route path="*" element={<Navigate to={'/'} />}/>
         </Route>
       </Routes>
     </BrowserRouter>
