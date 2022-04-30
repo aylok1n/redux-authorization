@@ -1,10 +1,17 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Outlet } from "react-router-dom";
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { logout } from "../redux/userSlice";
 
 const App = () => {
   const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
   const isLoginned = !!user.email && !!user.password;
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className="flex items-center flex-col">
@@ -28,6 +35,14 @@ const App = () => {
           >
             Регистрация
           </Link>
+        )}
+        {isLoginned && (
+          <span
+            className="self-end cursor-pointer text-red-500 hover:text-red-700 float-right mx-2"
+            onClick={handleLogout}
+          >
+            Выйти
+          </span>
         )}
         {isLoginned && (
           <Link
