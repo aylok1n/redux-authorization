@@ -1,7 +1,7 @@
 export const WelcomePage = () => {
-    return (
-        <main >
-            <p>welcome</p>
-        </main>
-    )
-}
+  return (
+    <main>
+      <p>welcome</p>
+    </main>
+  );
+};
