@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ciplay/static/css/main.852dbf88.css",
-    "main.js": "/ciplay/static/js/main.d0468f98.js",
+    "main.js": "/ciplay/static/js/main.7affd946.js",
     "index.html": "/ciplay/index.html",
     "main.852dbf88.css.map": "/ciplay/static/css/main.852dbf88.css.map",
-    "main.d0468f98.js.map": "/ciplay/static/js/main.d0468f98.js.map"
+    "main.7affd946.js.map": "/ciplay/static/js/main.7affd946.js.map"
   },
   "entrypoints": [
     "static/css/main.852dbf88.css",
-    "static/js/main.d0468f98.js"
+    "static/js/main.7affd946.js"
   ]
 }
