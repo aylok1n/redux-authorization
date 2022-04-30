@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface SignInState {
-    email: String,
-    password: String
+    email: string,
+    password: string
 }
 
 const initialState: SignInState = {

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface ChangePasswordState {
-    oldPassword: String,
-    password: String,
-    newPassword: String,
+    oldPassword: string,
+    password: string,
+    newPassword: string,
 }
 
 const initialState: ChangePasswordState = {

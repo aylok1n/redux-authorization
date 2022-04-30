@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface SignUpState {
-    email: String,
-    password: String
-    confirmPassword: String
+    email: string,
+    password: string
+    confirmPassword: string
 }
 
 const initialState: SignUpState = {

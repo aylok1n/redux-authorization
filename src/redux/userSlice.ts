@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from './store'
 
 interface LoginActionPayload {
-    email: String,
-    password: String
+    email: string,
+    password: string
 }
 
 interface UserState {
-    email: String | null,
-    password: String | null
+    email: string | null,
+    password: string | null
 }
 
 const initialState: UserState = {
