@@ -74,7 +74,7 @@ export class Input extends Component<P, S> {
   };
 
   public render() {
-    const { placeholder, value } = this.props;
+    const { placeholder, value, validationSchema } = this.props;
     const { status, errorText = "" } = this.state;
 
     let borderColor = "border-grey";
@@ -86,7 +86,12 @@ export class Input extends Component<P, S> {
         <div className={`px-4 py-2 border-2 ${borderColor} rounded`}>
           <input
             value={value}
-            type="text"
+            type={
+              validationSchema === Input.validation.password ||
+              validationSchema === Input.validation.confirmPassword(value)
+                ? "password"
+                : "text"
+            }
             className="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
             placeholder={placeholder}
             onChange={this.handleChangeValue}
