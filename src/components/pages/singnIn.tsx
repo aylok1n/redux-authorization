@@ -1,5 +1,5 @@
 export const SignInPage = () => {
     return (
-        <div>SignInPage</div>
+        <main>SignInPage</main>
     )
 }
